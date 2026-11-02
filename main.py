@@ -1,5 +1,19 @@
 import streamlit as st
 
-st.set_page_config(page_title="AI Real-time GYM Coach")
-st.title("AI Real-time GYM Coach")
-st.write("Setup done!")
+from services.auth.login_wall import render_login_wall
+
+def main():
+    st.set_page_config(
+        page_icon="🏋️‍♀️",
+        page_title="AI Real-time GYM Coach",
+        initial_sidebar_state="expanded",
+        layout="centered"
+    )
+
+    if not render_login_wall():
+        return
+
+    st.write("Hello")
+    
+if __name__ == "__main__":
+    main()
